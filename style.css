@@ -51,7 +51,6 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 32px;
   width: 656px;
   height: 1280px;
@@ -70,6 +69,7 @@ img {
   line-height: 100%;
   color: var(--stone-900);
   font-family: var(--font-family-1);
+  font-weight: normal;
 }
 .title p {
   color: var(--stone-600);
@@ -84,37 +84,53 @@ img {
   width: 656px;
   height: 172px;
   padding: 24px;
-  border-radius: 24px;
+  border-radius: 12px;
+  flex-wrap: nowrap;
   background-color: var(--rose-50);
   font-family: var(--font-family-2);
 }
 .preparation h2 {
   color: var(--rose-800);
-  font-family: var(--font-family-2);
   font-size: 20px;
   line-height: 100%;
 }
-#time-list {
-  list-style-type: disc;
+.time__list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--stone-600);
+  align-items: flex-start;
+}
+.preparation ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 8px;
-  gap: 8px;
-  width: 608px;
-  height: 88px;
-  white-space: nowrap;
 }
 
 .time__list li {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  white-space: nowrap;
+  gap:16px;
+  align-items: center;
+  font-size: 16px;
   width: 100%;
   height: 24px;
-  list-style-type: none;
 }
+
 .time__list strong {
   font-weight: bold;
+  display: list-item;
+  padding-left: 8px;
 }
+.time__list strong::marker {
+  color: var(--rose-800);
+  padding-right: 8px;
+  
+}
+
 .ingredients {
   display: flex;
   flex-direction: column;
@@ -129,32 +145,38 @@ img {
   font-family: var(--font-family-1);
   font-size: 28px;
   line-height: 100%;
+  font-weight: normal;
   align-content: start;
 }
-#igredients-list {
-  list-style-type: disc;
+.ingredients__list {
   display: flex;
-  flex-direction: row;
-  width: 656px;
-  height: 152px;
-  gap: 16px;
-  white-space: nowrap;
-  padding-right: 8px;
+      flex-direction: column;
+      width: 656px;
+      height: 152px;
+      gap: 8px;
+      white-space: nowrap;
+      padding-left: 18px;
+      justify-content: center;
+      align-items: flex-start;
 }
 
 .ingredients__list li {
   width: 656px;
-  height: 24px;
+  height: fit-content;
   font-size: 16px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  list-style-type: disc;
+  display: list-item;
   font-family: var(--font-family-2);
+  color: var(--stone-600);
+  padding-left: 8px;
+}
+.ingredients__list li::marker {
+  color: var(--brown-800);
+  padding-right: 8px;
 }
 hr {
   width: 656px;
-  height: 1px;
+  height: 0px;
+  border:solid 1px var(--stone-150);
   background-color: var(--stone-150);
 }
 .instructions {
@@ -171,35 +193,44 @@ hr {
   font-family: var(--font-family-1);
   font-size: 28px;
   line-height: 100%;
+  font-weight: normal;
 }
 #instructions-list {
-  list-style-type: disc;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 656px;
-  height: 252px;
-  gap: 16px;
-  padding-right: 8px;
+  display: flex
+  ;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 656px;
+      height: 252px;
+      gap: 16px;
+
+      align-items: flex-start;
 }
 .instructions__list li {
   width: 656px;
-  height: 48px;
+  height: fit-content;
   font-size: 16px;
   display: flex;
   flex-direction: row;
-  padding-left: 8px;
   justify-content: flex-start;
   align-items: flex-start;
   font-family: var(--font-family-2);
   color: var(--stone-600);
+  padding-left: 8px;
+  margin-left: 8px;
 }
 .instructions__list strong {
+  display: list-item;
+  list-style: decimal;
   font-weight: bold;
   white-space: nowrap;
   margin-right: 8px;
-}
 
+}
+.instructions__list strong::marker {
+  color: var(--brown-800);
+  padding-right: 8px;
+}
 .nutrition {
   width: 656px;
   height: 268px;
@@ -214,6 +245,7 @@ hr {
   font-family: var(--font-family-1);
   font-size: 28px;
   line-height: 100%;
+  font-weight: normal;
 }
 .nutrition p {
   color: var(--stone-600);
@@ -234,23 +266,51 @@ hr {
   width: 656px;
   height: 24px;
   gap: 16px;
-  padding: 32px;
   flex-direction: row;
 }
 .nutrition hr {
   display: flex;
+  position: relative;
 }
 tbody {
+  position: relative;
   width: 656px;
   height: 168px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#line-1 {
+  transform: translate(0px, 36px);
+  background-color: var(--stone-150);
+}
+#line-2 {
+  transform: translate(0px, 72px);
+}
+#line-3 {
+  transform: translate(0px, 108px);
 }
 th {
   width: 288px;
   height: 24px;
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font-family-2);
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--stone-600);
 }
 td {
   width: 288px;
   height: 24px;
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font-family-2);
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--brown-800);
 }
 
 @media (min-width: 1024px) {
